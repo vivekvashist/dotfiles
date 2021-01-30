@@ -1,2 +1,7 @@
 # dotfiles
-My personal dotfiles.
+
+My custom configuration files for:
+
+* Bash
+* Tmux
+* Vim
