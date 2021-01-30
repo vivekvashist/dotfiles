@@ -54,3 +54,36 @@ shopt -s histappend # append to history file
 export EDITOR=vim
 
 ###############
+
+
+# -- Functions
+
+# Create a directory and cd into it
+
+mcd() {
+    mkdir "${1}" && cd "${1}"
+}
+
+# Command to activate / create Python virtual environmment
+# Activate a Python virtual environment or create a new one if it doesn't exist and install the go-to packages I use in every project. 
+
+function venv {
+    default_envdir=".env"
+    envdir=${1:-$default_envdir}
+
+    if [ ! -d $envdir ]; then
+        python -m venv $envdir
+        pip install jupyterlab black flake8 bpython mypy pytest
+        echo -e "\x1b[38;5;2m✔ Created virtualenv $envdir\x1b[0m"
+    fi
+    source $envdir/bin/activate
+    export PYTHONPATH=`pwd`
+    echo -e "\x1b[38;5;2m✔ Activated virtualenv $envdir\x1b[0m"
+    python -m pip install --upgrade pip
+    echo -e "\x1b[38;5;2m✔ Upgraded pip for $envdir\x1b[0m"
+    cd $envdir
+    echo -e "\x1b[38;5;2m✔ Changed directory to virtualenv $envdir\x1b[0m"
+    python --version
+}
+
+###############
