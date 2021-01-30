@@ -43,3 +43,14 @@ demoprompt() {
     PS1="${COLOR_GRAY}\w ${COLOR_BLUE}\$ "
     trap '[[ -t 1 ]] && tput sgr0' DEBUG
 }
+
+# -- History
+
+HISTSIZE=1048576
+HISTFILE="$HOME/.bash_history"
+SAVEHIST=$HISTSIZE
+shopt -s histappend # append to history file
+
+export EDITOR=vim
+
+###############
