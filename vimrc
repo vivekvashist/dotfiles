@@ -199,12 +199,6 @@ set viminfo='25,\"50,n~/.viminfo
 " auto-pairs
 au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
 
-" word movement
-imap <S-Left> <Esc>bi
-nmap <S-Left> b
-imap <S-Right> <Esc><Right>wi
-nmap <S-Right> w
-
 " indent/unindent with tab/shift-tab
 nmap <Tab> >>
 nmap <S-tab> <<
@@ -229,7 +223,6 @@ function ToggleMouse()
 endfunction
 
 " color scheme
-syntax on
 colorscheme onedark
 
 " lightline
@@ -271,20 +264,6 @@ function ToggleWrap()
         inoremap <buffer> <silent> <End>  <C-o>g<End>
     endif
 endfunction
-
-" move through split windows
-nmap <leader><Up> :wincmd k<CR>
-nmap <leader><Down> :wincmd j<CR>
-nmap <leader><Left> :wincmd h<CR>
-nmap <leader><Right> :wincmd l<CR>
-
-" move through buffers
-nmap <leader>[ :bp!<CR>
-nmap <leader>] :bn!<CR>
-nmap <leader>x :bd<CR>
-
-" restore place in file from previous session
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " file browser
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
@@ -333,4 +312,3 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
