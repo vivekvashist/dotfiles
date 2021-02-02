@@ -130,17 +130,24 @@ set noerrorbells visualbell t_vb=
 " makes things smoother, will probably be enabled by my terminal anyway.
 set ttyfast
 
-" No beeps
+" no beeps
 set noerrorbells 
 
-" Show me what I'm typing
+" show me what I'm typing
 set showcmd
 
-" Don't use swapfile
+" don't use swapfile
 set noswapfile
 
-" Don't create annoying backup files
+" don't create annoying backup files
 set nobackup
+
+" Split vertical windows right to the current windows
+set splitright
+
+" Split horizontal windows below to the current windows
+set splitbelow
+
 
 " plugins
 let need_to_install_plugins = 0
