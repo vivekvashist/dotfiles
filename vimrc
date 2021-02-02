@@ -103,6 +103,45 @@ set fileencoding=utf-8
 
 set viminfo='25,\"50,n~/.viminfo
 
+" show matching braces when text indicator is over them
+set showmatch
+
+" incremental search (as string is being typed)
+set incsearch
+
+" highlight search
+set hls
+
+" line break
+set lbr
+
+" show lines above and below cursor (when possible)
+set scrolloff=5
+
+" hide mode
+set noshowmode
+
+" skip redrawing screen in some cases
+set lazyredraw
+
+" disable audible bell
+set noerrorbells visualbell t_vb=
+
+" makes things smoother, will probably be enabled by my terminal anyway.
+set ttyfast
+
+" No beeps
+set noerrorbells 
+
+" Show me what I'm typing
+set showcmd
+
+" Don't use swapfile
+set noswapfile
+
+" Don't create annoying backup files
+set nobackup
+
 " plugins
 let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -287,3 +326,4 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
