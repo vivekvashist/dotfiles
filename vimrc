@@ -130,9 +130,6 @@ Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
-filetype plugin indent on
-syntax on
-
 if need_to_install_plugins == 1
     echo "Installing plugins..."
     silent! PlugInstall
