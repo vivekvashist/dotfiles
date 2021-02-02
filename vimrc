@@ -140,15 +140,9 @@ if need_to_install_plugins == 1
     q
 endif
 
-" always show the status bar
-set laststatus=2
-
 " enable 256 colors
 set t_Co=256
 set t_ut=
-
-" turn on line numbering
-set number
 
 " sane text files
 set fileformat=unix
@@ -156,15 +150,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " sane editing
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set colorcolumn=80
-set expandtab
 set viminfo='25,\"50,n~/.viminfo
-autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " auto-pairs
 au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
@@ -201,8 +188,6 @@ endfunction
 " color scheme
 syntax on
 colorscheme onedark
-filetype on
-filetype plugin indent on
 
 " lightline
 set noshowmode
