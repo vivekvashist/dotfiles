@@ -148,6 +148,8 @@ set splitright
 " Split horizontal windows below to the current windows
 set splitbelow
 
+" <Ctrl-l> redraws the screen and removes any search highlighting
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " plugins
 let need_to_install_plugins = 0
