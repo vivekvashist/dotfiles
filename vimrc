@@ -10,6 +10,7 @@ set shortmess+=I
 
 " Show line numbers.
 set number
+set numberwidth=5
 
 " Display how far away each line is from the current one by default
 set relativenumber
