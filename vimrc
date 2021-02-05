@@ -149,6 +149,9 @@ set splitright
 " Split horizontal windows below to the current windows
 set splitbelow
 
+" Visual selection highlight
+:highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
+
 " <Ctrl-l> redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
