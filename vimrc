@@ -180,6 +180,7 @@ Plug 'lepture/vim-jinja'
 Plug 'pangloss/vim-javascript'
 Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -318,3 +319,27 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+
+" YouCompleteMe settings
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+" Enter the first character to start completion @2018-07-19 Change to 1, otherwise a bunch of meaningless prompts will pop up when you move the cursor
+let g:ycm_min_num_of_chars_for_completion=1
+"It is forbidden to cache matches and regenerate matches every time
+let g:ycm_cache_omnifunc=0
+" Turn on semantic completion
+let g:ycm_seed_identifiers_with_syntax=1
+" Can also be completed in comment input
+let g:ycm_complete_in_comments = 1
+" Can be completed in string input
+let g:ycm_complete_in_strings = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_filetype_whitelist = { 'python': 1 }
+let g:ycm_python_binary_path = 'python3'
+map <C-G>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"  fix .cpp error: ValueError: Still no compile flags, no completions yet.
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" Vim's autocomplete is excruciatingly slow
+" http://stackoverflow.com/questions/2169645/vims-autocomplete-is-excruciatingly-slow
+set complete-=i
