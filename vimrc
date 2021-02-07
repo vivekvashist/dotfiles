@@ -343,3 +343,5 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd
 " Vim's autocomplete is excruciatingly slow
 " http://stackoverflow.com/questions/2169645/vims-autocomplete-is-excruciatingly-slow
 set complete-=i
+" Disable annoying message
+let g:ycm_confirm_extra_conf = 0
