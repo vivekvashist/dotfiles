@@ -1,5 +1,4 @@
-" Use vim settings, rather then vi settings (much better!)
-" This must be first, because it changes other options as a side effect.
+" Not vi compatible.
 set nocompatible
 
 " Turn on syntax highlighting.
@@ -12,52 +11,32 @@ set shortmess+=I
 set number
 set numberwidth=5
 
-" Display how far away each line is from the current one by default
+" Display how far away each line is from the current one by default.
 set relativenumber
 
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
 
-" This configuration makes backspace behave more reasonably, in that you can
-" backspace over anything.
+" Make backspace key more powerful.
 set backspace=indent,eol,start
 
-" Under default settings, making changes and then opening a new file will display
-" E37: No write since last change (add ! to override)
-" By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
-" forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
-" hidden buffers helpful enough to disable this protection.
+" Allow  auto-hiding of edited buffers.
 set hidden
 
-" This setting makes search case-insensitive when all characters in the string
-" being searched are lowercase. However, the search becomes case-sensitive if
-" it contains any capital letters. This makes searching more convenient.
+" Smart case-sensitive search.
 set ignorecase
 set smartcase
 
-" Unbind some useless/annoying default key bindings.
-nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
-
-" Disable audible bell because it's annoying.
+" No beeps.
 set noerrorbells visualbell t_vb=
 
-" Enable mouse support. You should avoid relying on this too much, but it can
-" sometimes be convenient.
+" enable mouse mode.
 set mouse+=a
-
-" configure expanding of tabs for various file types
-au BufRead,BufNewFile *.py set expandtab
 
 " show line and column number
 set ruler
 
-" Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
-" Do this in normal mode...
+" Use h,j,k,l instead of arrow keys.
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
@@ -68,17 +47,14 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-" enter spaces when tab is pressed
+" Convert all tabs that are typed into spaces.
 set expandtab
 
-" break line when line lenght increases
-set textwidth=120
-
-" use 4 spaces to represent tab
+" Tab indentation levels every four columns.
 set tabstop=4
 set softtabstop=4
 
-" number of spaces to use for auto indent
+" Indent/outdent by four columns.
 set shiftwidth=4
 
 " copy indent from current line when starting a new line
@@ -132,7 +108,7 @@ set noerrorbells visualbell t_vb=
 set ttyfast
 
 " no beeps
-set noerrorbells 
+set noerrorbells
 
 " show me what I'm typing
 set showcmd
