@@ -69,16 +69,10 @@ filetype plugin indent on
 " enable filetype detection
 filetype on
 
-" enable 256 colors
-set t_Co=256
-set t_ut=
-
 " sane text files
 set fileformat=unix
 set encoding=utf-8
 set fileencoding=utf-8
-
-set viminfo='25,\"50,n~/.viminfo
 
 " show matching braces when text indicator is over them
 set showmatch
@@ -110,9 +104,6 @@ set ttyfast
 " no beeps
 set noerrorbells
 
-" show me what I'm typing
-set showcmd
-
 " don't use swapfile
 set noswapfile
 
@@ -142,7 +133,6 @@ endif
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
-Plug 'joshdick/onedark.vim'
 Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
@@ -157,6 +147,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -168,7 +159,6 @@ endif
 
 " enable 256 colors
 set t_Co=256
-set t_ut=
 
 " sane text files
 set fileformat=unix
@@ -177,7 +167,6 @@ set fileencoding=utf-8
 
 " sane editing
 set colorcolumn=80
-set viminfo='25,\"50,n~/.viminfo
 
 " auto-pairs
 au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
@@ -206,11 +195,13 @@ function ToggleMouse()
 endfunction
 
 " color scheme
-colorscheme onedark
+colorscheme gruvbox
+
+" Set background
+set background=dark
 
 " lightline
 set noshowmode
-let g:lightline = { 'colorscheme': 'onedark' }
 
 " code folding
 set foldmethod=indent
@@ -277,25 +268,10 @@ map <C-r> <Plug>(ale_previous_wrap)
 " tags
 map <leader>t :TagbarToggle<CR>
 
-" copy, cut and paste
-vmap <C-c> "+y
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
-
 " disable autoindent when pasting text
 " source: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
-
-function! XTermPasteBegin()
-    set pastetoggle=<Esc>[201~
-    set paste
-    return ""
-endfunction
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
 
 " YouCompleteMe settings
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
