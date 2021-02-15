@@ -9,7 +9,6 @@ set shortmess+=I
 
 " Show line numbers.
 set number
-set numberwidth=5
 
 " Display how far away each line is from the current one by default.
 set relativenumber
@@ -27,13 +26,10 @@ set hidden
 set ignorecase
 set smartcase
 
-" No beeps.
-set noerrorbells visualbell t_vb=
-
-" enable mouse mode.
+" Enable mouse mode.
 set mouse+=a
 
-" show line and column number
+" Show line and column number
 set ruler
 
 " Use h,j,k,l instead of arrow keys.
@@ -57,57 +53,54 @@ set softtabstop=4
 " Indent/outdent by four columns.
 set shiftwidth=4
 
-" copy indent from current line when starting a new line
+" Copy indent from current line when starting a new line
 set autoindent
 
-" show (partial) command in status line
+" Show (partial) command in status line
 set showcmd
 
-" turn on "detection", "plugin" and "indent" at once
+" Turn on "detection", "plugin" and "indent" at once
 filetype plugin indent on
 
-" enable filetype detection
+" Enable filetype detection
 filetype on
 
-" sane text files
-set fileformat=unix
+" Sane text files
+set fileformats=unix,mac,dos " Handle Mac and DOS line-endings but prefer Unix encodings.
 set encoding=utf-8
 set fileencoding=utf-8
 
-" show matching braces when text indicator is over them
+" Show matching braces when text indicator is over them
 set showmatch
 
-" incremental search (as string is being typed)
+" Incremental search (as string is being typed)
 set incsearch
 
-" highlight search
-set hls
+" Highlight search
+set hlsearch
 
-" line break
+" Line break
 set lbr
 
-" show lines above and below cursor (when possible)
+" Show lines above and below cursor (when possible)
 set scrolloff=5
 
-" hide mode
+" Hide mode
 set noshowmode
 
-" skip redrawing screen in some cases
+" Skip redrawing screen in some cases
 set lazyredraw
 
-" disable audible bell
-set noerrorbells visualbell t_vb=
-
-" makes things smoother, will probably be enabled by my terminal anyway.
+" Makes things smoother, will probably be enabled by my terminal anyway.
 set ttyfast
 
-" no beeps
-set noerrorbells
+" No beeps
+set noerrorbells visualbell t_vb=
 
-" don't use swapfile
+" Don't use swapfile
 set noswapfile
 
-" don't create annoying backup files
+" Don't create annoying backup files
 set nobackup
 
 " Split vertical windows right to the current windows
@@ -116,13 +109,22 @@ set splitright
 " Split horizontal windows below to the current windows
 set splitbelow
 
+" Turn on autoindenting of blocks
+set smartindent
+
+" Retain indentation on next line
+set autoindent
+
+" Show how many matches when searching with / or ?
+set shortmess-=S
+
 " Visual selection highlight
 :highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
 
 " <Ctrl-l> redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" plugins
+" Plugins
 let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -148,6 +150,8 @@ Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -157,57 +161,48 @@ if need_to_install_plugins == 1
     q
 endif
 
-" enable 256 colors
+" Enable 256 colors
 set t_Co=256
 
-" sane text files
+" Sane text files
 set fileformat=unix
 set encoding=utf-8
 set fileencoding=utf-8
 
-" sane editing
+" Sane editing
 set colorcolumn=80
 
-" auto-pairs
+" Auto-pairs
 au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
 
-" indent/unindent with tab/shift-tab
+" Indent/unindent with tab/shift-tab
 nmap <Tab> >>
 nmap <S-tab> <<
 imap <S-Tab> <Esc><<i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
-" mouse
+" Enable mouse mode
 set mouse=a
-let g:is_mouse_enabled = 1
-noremap <silent> <Leader>m :call ToggleMouse()<CR>
-function ToggleMouse()
-    if g:is_mouse_enabled == 1
-        echo "Mouse OFF"
-        set mouse=
-        let g:is_mouse_enabled = 0
-    else
-        echo "Mouse ON"
-        set mouse=a
-        let g:is_mouse_enabled = 1
-    endif
-endfunction
 
 " color scheme
 colorscheme gruvbox
+" colorscheme dracula
 
 " Set background
 set background=dark
 
-" lightline
+" Lightline
 set noshowmode
 
-" code folding
+" Code folding
 set foldmethod=indent
 set foldlevel=99
 
-" wrap toggle
+" No wrap
+set nowrap
+
+" Wrap toggle
 setlocal nowrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
@@ -239,7 +234,7 @@ function ToggleWrap()
     endif
 endfunction
 
-" file browser
+" File browser
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeMinimalUI = 1
 let g:nerdtree_open = 0
@@ -261,17 +256,12 @@ function! StartUp()
 endfunction
 autocmd VimEnter * call StartUp()
 
-" ale
+" Ale
 map <C-e> <Plug>(ale_next_wrap)
 map <C-r> <Plug>(ale_previous_wrap)
 
-" tags
+" Tags
 map <leader>t :TagbarToggle<CR>
-
-" disable autoindent when pasting text
-" source: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
 
 " YouCompleteMe settings
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
@@ -297,3 +287,6 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd
 set complete-=i
 " Disable annoying message
 let g:ycm_confirm_extra_conf = 0
+
+" YCM key bindings
+nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
