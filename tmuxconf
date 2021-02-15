@@ -1,7 +1,7 @@
 ## INSTALL ##
 # cp tmuxconf ~/.tmux.conf
 
-# act like GNU screen and # set prefix key to c-a instead of default c-b
+# Act like GNU screen and # set prefix key to c-f instead of default c-b.
 unbind C-b
 set -g prefix C-a
 bind a send-prefix
@@ -9,37 +9,35 @@ bind C-a send-prefix
 bind b send-prefix
 bind C-b send-prefix
 
-# start windows and pane numbering with index 1 instead of 0
+# Start windows and pane numbering with index 1 instead of 0.
 set -g base-index 1
 setw -g pane-base-index 1
 
-# re-number windows when one is closed
+# Re-number windows when one is closed.
 set -g renumber-windows on
 
-# faster command sequence
+# Faster command sequence.
 set -s escape-time 0
 
-# act like vim
+# Act like vim.
 setw -g mode-keys vi
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
-bind -r C-h select-window -t :-
-bind -r C-l select-window -t :+
 
-# reload the .tmux.conf file with Ctrl-r
-bind C-r source-file ~/.tmux.conf \; display-message "configuration reloaded!"
+# Reload the .tmux.conf file with.
+bind r source-file ~/.tmux.conf \; display-message "configuration reloaded!"
 
-# improve colors
+# Improve colors.
 set -g default-terminal 'screen-256color'
 
-# tmux status bar settings
+# Tmux status bar settings.
 set -g status-left-length 20
 set -g status-left '#{?pane_input_off,#[fg=colour160],#[fg=colour136]}[#[fg=colour136]#S:#I.#P#{?pane_input_off,#[fg=colour160],#[fg=colour136]}] '
 set -g status-right '#[fg=colour166]#([ "$(tmux show-option -g prefix)" != "prefix C-a" ] && echo "($(tmux show-option -g prefix | cut -c 8-)) ")#[fg=colour33]%d %b %Y #{?client_prefix,#[fg=colour160],#[fg=colour61]}- #[fg=colour64]%I:%M %p #{?client_prefix,#[fg=colour160],#[fg=colour61]}- #[fg=colour37]#([ -f $HOME/.name ] && cat $HOME/.name || hostname)'
 
-# color (Solarized 256)
+# Color (Solarized 256).
 set -g status-style bg=colour235,fg=colour136
 setw -g window-status-style fg=colour244
 setw -g window-status-current-style fg=colour166
@@ -49,26 +47,23 @@ set -g pane-border-style fg=colour235
 set -g pane-active-border-style fg=colour240
 set -g message-style bg=colour235,fg=colour166
 
-# improve colors
-set -g default-terminal 'screen-256color'
-
-# pane number display
+# Pane number display.
 set -g display-panes-active-colour colour166 #blue
 set -g display-panes-colour colour33 #orange
 
-# clock
+# Clock.
 setw -g clock-mode-colour colour64 #green
 
-# display pane numbers for longer
+# Display pane numbers for longer.
 set -g display-panes-time 2000
 
-# tmux messages are displayed for 4 seconds
+# Tmux messages are displayed for 4 seconds.
 set -g display-time 4000
 
-# enable mouse control
+# Enable mouse control.
 set -g mouse on
 
-# enable vi like copy/paste
+# Enable vi like copy/paste.
 set-window-option -g mode-keys vi
 bind-key -T copy-mode-vi v send-keys -X begin-selection
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
