@@ -118,11 +118,17 @@ set autoindent
 " Show how many matches when searching with / or ?
 set shortmess-=S
 
+" Increment/decrement alphabetic characters
+set nrformats+=alpha
+
 " Visual selection highlight
 :highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
 
-" <Ctrl-l> redraws the screen and removes any search highlighting
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+" <esc><esc> redraws the screen and removes any search highlighting
+nnoremap <esc><esc> :noh<return><esc>
+
+" Wipe registers with :WipeReg
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
 " Plugins
 let need_to_install_plugins = 0
@@ -137,9 +143,6 @@ Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs', { 'for': 'python' }
 Plug 'dense-analysis/ale'
 Plug 'majutsushi/tagbar'
@@ -204,64 +207,6 @@ set nowrap
 
 " Wrap toggle
 setlocal nowrap
-noremap <silent> <Leader>w :call ToggleWrap()<CR>
-function ToggleWrap()
-    if &wrap
-        echo "Wrap OFF"
-        setlocal nowrap
-        set virtualedit=all
-        silent! nunmap <buffer> <Up>
-        silent! nunmap <buffer> <Down>
-        silent! nunmap <buffer> <Home>
-        silent! nunmap <buffer> <End>
-        silent! iunmap <buffer> <Up>
-        silent! iunmap <buffer> <Down>
-        silent! iunmap <buffer> <Home>
-        silent! iunmap <buffer> <End>
-    else
-        echo "Wrap ON"
-        setlocal wrap linebreak nolist
-        set virtualedit=
-        setlocal display+=lastline
-        noremap  <buffer> <silent> <Up>   gk
-        noremap  <buffer> <silent> <Down> gj
-        noremap  <buffer> <silent> <Home> g<Home>
-        noremap  <buffer> <silent> <End>  g<End>
-        inoremap <buffer> <silent> <Up>   <C-o>gk
-        inoremap <buffer> <silent> <Down> <C-o>gj
-        inoremap <buffer> <silent> <Home> <C-o>g<Home>
-        inoremap <buffer> <silent> <End>  <C-o>g<End>
-    endif
-endfunction
-
-" File browser
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let NERDTreeMinimalUI = 1
-let g:nerdtree_open = 0
-map <leader>n :call NERDTreeToggle()<CR>
-function NERDTreeToggle()
-    NERDTreeTabsToggle
-    if g:nerdtree_open == 1
-        let g:nerdtree_open = 0
-    else
-        let g:nerdtree_open = 1
-        wincmd p
-    endif
-endfunction
-
-function! StartUp()
-    if 0 == argc()
-        NERDTree
-    end
-endfunction
-autocmd VimEnter * call StartUp()
-
-" Ale
-map <C-e> <Plug>(ale_next_wrap)
-map <C-r> <Plug>(ale_previous_wrap)
-
-" Tags
-map <leader>t :TagbarToggle<CR>
 
 " YouCompleteMe settings
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
