@@ -6,3 +6,4 @@ My custom configuration files for:
 * Tmux
 * Vim
 * Inputrc
+* Alacritty
