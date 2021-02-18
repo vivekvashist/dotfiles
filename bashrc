@@ -7,9 +7,7 @@
 # 2. To source .bashrc, create .bash_profile with content:
 # if [ -f ~/.bashrc ]; then . ~/.bashrc; fi 
 #
-
 ###############
-
 
 # Set CLICOLOR if you want Ansi Colors in iTerm2
 
