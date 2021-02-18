@@ -73,7 +73,6 @@ function venv {
 
     if [ ! -d $envdir ]; then
         python -m venv $envdir
-        pip install jupyterlab black flake8 bpython mypy pytest
         echo -e "\x1b[38;5;2m✔ Created virtualenv $envdir\x1b[0m"
     fi
     source $envdir/bin/activate
@@ -81,6 +80,8 @@ function venv {
     echo -e "\x1b[38;5;2m✔ Activated virtualenv $envdir\x1b[0m"
     python -m pip install --upgrade pip
     echo -e "\x1b[38;5;2m✔ Upgraded pip for $envdir\x1b[0m"
+    pip install jupyterlab black flake8 bpython mypy pytest
+    echo -e "\x1b[38;5;2m✔ Installed jupyterlab black flake8 bpython mypy pytest for $envdir\x1b[0m"
     cd $envdir
     echo -e "\x1b[38;5;2m✔ Changed directory to virtualenv $envdir\x1b[0m"
     python --version
