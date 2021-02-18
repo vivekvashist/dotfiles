@@ -147,8 +147,6 @@ Plug 'jiangmiao/auto-pairs', { 'for': 'python' }
 Plug 'dense-analysis/ale'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'lepture/vim-jinja'
-Plug 'pangloss/vim-javascript'
 Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
@@ -235,3 +233,19 @@ let g:ycm_confirm_extra_conf = 0
 
 " YCM key bindings
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+
+" python alias (,p runs python on script. ,t times python script)
+nmap ,p :w<CR>:!python3 %<CR>
+nmap ,t :w<CR>:!time python3 %<CR>
+
+" Ale Linting
+let g:ale_sign_column_always=1
+let g:ale_lint_on_enter=1
+let g:ale_lint_on_text_changed='always'
+let g:ale_echo_msg_error_str='E'
+let g:ale_echo_msg_warning_str='W'
+let g:ale_echo_msg_format='[%linter%] %s [%severity%]: [%...code...%]'
+let g:ale_linters={'python': ['flake8','mypy']}
+let g:ale_fixers={'python': ['black']}
+let g:ale_fix_on_save = 1
+let g:ale_python_auto_pipenv = 1
