@@ -10,9 +10,22 @@
 
 ###############
 
-# Bash settings
 
-# -- Prompt
+# Set CLICOLOR if you want Ansi Colors in iTerm2
+
+export CLICOLOR=1
+
+# Set colors to match iTerm2 Terminal Colors
+#export TERM=xterm-256color
+
+# Load pyenv automatically by adding
+# the following to ~/.bashrc:
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+export PATH="$HOME/.poetry/bin:$PATH"
 
 ATTRIBUTE_BOLD='\[\e[1m\]'
 ATTRIBUTE_RESET='\[\e[0m\]'
@@ -44,7 +57,14 @@ demoprompt() {
     trap '[[ -t 1 ]] && tput sgr0' DEBUG
 }
 
-# -- History
+# Colored man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 HISTSIZE=1048576
 HISTFILE="$HOME/.bash_history"
@@ -53,19 +73,24 @@ shopt -s histappend # append to history file
 
 export EDITOR=vim
 
-###############
+# Aliases to protect against overwriting
+alias cp='cp -i'
+alias mv='mv -i'
 
-
-# -- Functions
+# Aliases for Tmux
+alias t='tmux'
+alias tls='tmux ls'
 
 # Create a directory and cd into it
-
 mcd() {
     mkdir "${1}" && cd "${1}"
 }
 
+# Disable Mac OS Catalina ZSH message
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Command to activate / create Python virtual environmment
-# Activate a Python virtual environment or create a new one if it doesn't exist and install the go-to packages I use in every project. 
+# Activate a Python virtual environment or create a new one if it doesn't exist and install the go-to packages I use in every project.
 
 function venv {
     default_envdir=".env"
@@ -86,5 +111,3 @@ function venv {
     echo -e "\x1b[38;5;2m✔ Changed directory to virtualenv $envdir\x1b[0m"
     python --version
 }
-
-###############
