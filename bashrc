@@ -25,6 +25,10 @@ eval "$(pyenv init -)"
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
+# Bash settings
+
+# -- Prompt
+
 ATTRIBUTE_BOLD='\[\e[1m\]'
 ATTRIBUTE_RESET='\[\e[0m\]'
 COLOR_DEFAULT='\[\e[39m\]'
@@ -64,12 +68,17 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+
+# -- History
+
 HISTSIZE=1048576
 HISTFILE="$HOME/.bash_history"
 SAVEHIST=$HISTSIZE
 shopt -s histappend # append to history file
 
 export EDITOR=vim
+
+# -- Aliases
 
 # Aliases to protect against overwriting
 alias cp='cp -i'
@@ -78,6 +87,8 @@ alias mv='mv -i'
 # Aliases for Tmux
 alias t='tmux'
 alias tls='tmux ls'
+
+# -- Functions
 
 # Create a directory and cd into it
 mcd() {
