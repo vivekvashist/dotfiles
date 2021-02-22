@@ -187,6 +187,7 @@ vmap <S-Tab> <gv
 set mouse=a
 
 " color scheme
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 " colorscheme dracula
 
@@ -249,3 +250,7 @@ let g:ale_linters={'python': ['flake8','mypy']}
 let g:ale_fixers={'python': ['black']}
 let g:ale_fix_on_save = 1
 let g:ale_python_auto_pipenv = 1
+
+"http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
+set clipboard^=unnamed
+set clipboard^=unnamedplus
