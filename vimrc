@@ -83,7 +83,7 @@ set hlsearch
 set lbr
 
 " Show lines above and below cursor (when possible)
-set scrolloff=5
+set scrolloff=8
 
 " Hide mode
 set noshowmode
