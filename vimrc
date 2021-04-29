@@ -254,3 +254,11 @@ let g:ale_python_auto_pipenv = 1
 "http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
 set clipboard^=unnamed
 set clipboard^=unnamedplus
+
+" Leader
+let mapleader=" "       " leader is space
+
+" Key Bindings
+
+" Project view
+nnoremap <leader>pv :Vex<CR>
