@@ -1,4 +1,3 @@
-> cat ~/.vimrc
 " Not vi compatible.
 set nocompatible
 
@@ -249,3 +248,7 @@ set clipboard^=unnamedplus
 
 " Leader
 let mapleader=" "       " leader is space
+
+" remove extra help information
+let g:netrw_browse_split=2
+let g:netrw_banner=0
