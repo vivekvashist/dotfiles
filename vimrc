@@ -1,3 +1,4 @@
+> cat ~/.vimrc
 " Not vi compatible.
 set nocompatible
 
@@ -25,9 +26,6 @@ set hidden
 " Smart case-sensitive search.
 set ignorecase
 set smartcase
-
-" Enable mouse mode.
-set mouse+=a
 
 " Show line and column number
 set ruler
@@ -165,11 +163,6 @@ endif
 " Enable 256 colors
 set t_Co=256
 
-" Sane text files
-set fileformat=unix
-set encoding=utf-8
-set fileencoding=utf-8
-
 " Sane editing
 set colorcolumn=80
 
@@ -189,7 +182,6 @@ set mouse=a
 " color scheme
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
-" colorscheme dracula
 
 " Set background
 set background=dark
@@ -257,8 +249,3 @@ set clipboard^=unnamedplus
 
 " Leader
 let mapleader=" "       " leader is space
-
-" Key Bindings
-
-" Project view
-nnoremap <leader>pv :Vex<CR>
