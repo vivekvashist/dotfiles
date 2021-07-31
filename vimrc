@@ -118,6 +118,10 @@ set shortmess-=S
 " Increment/decrement alphabetic characters
 set nrformats+=alpha
 
+" Set up undodir ~/.vim/undodir
+set undodir=~/.vim/undodir
+set undofile
+
 " Visual selection highlight
 :highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
 
@@ -136,6 +140,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'https://github.com/ycm-core/YouCompleteMe.git'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
@@ -146,10 +154,6 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'https://github.com/ycm-core/YouCompleteMe.git'
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -252,3 +256,12 @@ let mapleader=" "       " leader is space
 " remove extra help information
 let g:netrw_browse_split=2
 let g:netrw_banner=0
+
+" Move between windows
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
+" Explorer window
+nnoremap <leader>pv :wincmd v<bar> :wincmd h<bar> :Ex <bar> :vertical resize 30<CR>
