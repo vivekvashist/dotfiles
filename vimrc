@@ -128,9 +128,6 @@ set undofile
 " <esc><esc> redraws the screen and removes any search highlighting
 nnoremap <esc><esc> :noh<return><esc>
 
-" Wipe registers with :WipeReg
-command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
-
 " Plugins
 let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -224,15 +221,12 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd
 " Vim's autocomplete is excruciatingly slow
 " http://stackoverflow.com/questions/2169645/vims-autocomplete-is-excruciatingly-slow
 set complete-=i
+
 " Disable annoying message
 let g:ycm_confirm_extra_conf = 0
 
 " YCM key bindings
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-
-" python alias (,p runs python on script. ,t times python script)
-nmap ,p :w<CR>:!python3 %<CR>
-nmap ,t :w<CR>:!time python3 %<CR>
 
 " Ale Linting
 let g:ale_sign_column_always=1
@@ -250,8 +244,8 @@ let g:ale_python_auto_pipenv = 1
 set clipboard^=unnamed
 set clipboard^=unnamedplus
 
-" Leader
-let mapleader=" "       " leader is space
+" Leader is space
+let mapleader=" "
 
 " remove extra help information
 let g:netrw_browse_split=2
