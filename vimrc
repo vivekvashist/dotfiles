@@ -259,3 +259,11 @@ map <leader>l :wincmd l<CR>
 
 " Explorer window
 nnoremap <leader>pv :wincmd v<bar> :wincmd h<bar> :Ex <bar> :vertical resize 30<CR>
+
+" Act like D and C
+nnoremap Y y$
+
+" Search mappings: These will make it so that going to the next one in a
+" " search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
