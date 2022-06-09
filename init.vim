@@ -3,6 +3,7 @@ Plug 'morhetz/gruvbox'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 let mapleader=" "
@@ -26,6 +27,7 @@ set termguicolors
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
+set noshowmode " lightline
 
 " Use h,j,k,l instead of arrow keys.
 nnoremap <Left>  :echoe "Use h"<CR>
