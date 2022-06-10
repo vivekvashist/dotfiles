@@ -4,6 +4,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'itchyny/lightline.vim'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 let mapleader=" "
@@ -50,3 +51,22 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " " search will center on the line it's found in.
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+" Better split switching
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" <esc><esc> redraws the screen and removes any search highlighting
+nnoremap <esc><esc> :noh<return><esc>
+
+" python LSP
+lua << EOF
+require'lspconfig'.pyright.setup{
+on_attach = function()
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer=0})
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer=0})
+end
+}
+EOF
