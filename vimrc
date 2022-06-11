@@ -1,17 +1,17 @@
 " Not vi compatible.
-set nocompatible
+" set nocompatible
 
 " Turn on syntax highlighting.
-syntax on
+" syntax on
 
 " Disable the default Vim startup message.
 set shortmess+=I
 
 " Show line numbers.
-set number
+" set number
 
 " Display how far away each line is from the current one by default.
-set relativenumber
+" set relativenumber
 
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
@@ -20,7 +20,7 @@ set laststatus=2
 set backspace=indent,eol,start
 
 " Allow  auto-hiding of edited buffers.
-set hidden
+" set hidden
 
 " Smart case-sensitive search.
 set ignorecase
@@ -60,7 +60,7 @@ set showcmd
 filetype plugin indent on
 
 " Enable filetype detection
-filetype on
+" filetype on
 
 " Sane text files
 set fileformats=unix,mac,dos " Handle Mac and DOS line-endings but prefer Unix encodings.
