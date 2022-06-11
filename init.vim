@@ -21,10 +21,13 @@ set nobackup
 set undofile
 set scrolloff=8
 set signcolumn=yes
-set colorcolumn=80
+set colorcolumn=81
 set expandtab
 set background=dark
 set termguicolors
+set smartindent
+set ignorecase
+set smartcase
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
