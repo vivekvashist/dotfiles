@@ -38,7 +38,7 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light = "hard"
 colorscheme gruvbox
 set noshowmode " lightline
-let loaded_netrwPlugin = 1
+let g:netrw_banner=0
 
 " Use h,j,k,l instead of arrow keys.
 nnoremap <Left>  :echoe "Use h"<CR>
