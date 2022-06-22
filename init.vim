@@ -11,6 +11,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'github/copilot.vim'
 call plug#end()
 
 let mapleader=" "
@@ -140,4 +141,8 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer=0})
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer=0})
 end
 }
+EOF
+lua << EOF
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 EOF
