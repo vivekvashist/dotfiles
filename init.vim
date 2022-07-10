@@ -37,6 +37,7 @@ set ignorecase
 set smartcase
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light = "hard"
+
 colorscheme gruvbox
 set noshowmode " lightline
 let g:netrw_banner=0
