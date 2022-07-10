@@ -5,6 +5,6 @@ My custom configuration files for:
 * Bash
 * Tmux
 * Neovim
-* Vim
+* ~~Vim~~
 * Inputrc
 * Alacritty
