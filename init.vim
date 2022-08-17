@@ -70,6 +70,9 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Act like D and C
+nnoremap Y y$
+
 " <esc><esc> redraws the screen and removes any search highlighting
 nnoremap <esc><esc> :noh<return><esc>
 
