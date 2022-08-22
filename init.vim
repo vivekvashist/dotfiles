@@ -70,9 +70,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Act like D and C
-nnoremap Y y$
-
 " <esc><esc> redraws the screen and removes any search highlighting
 nnoremap <esc><esc> :noh<return><esc>
 
@@ -150,3 +147,19 @@ lua << EOF
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 EOF
+
+"Show help files in a new tab
+"Only apply to .txt files...
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter  *.txt   call HelpInNewTab()
+augroup END
+
+"Only apply to help files...
+function! HelpInNewTab ()
+    if &buftype == 'help'
+        "Convert the help window to a tab...
+        execute "normal \<C-W>T"
+    endif
+endfunction
+
