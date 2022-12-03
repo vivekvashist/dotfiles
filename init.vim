@@ -64,6 +64,10 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" Same when moving up and down
+noremap <C-d> <C-d>zz
+noremap <C-u> <C-u>zz
+
 " Better split switching
 map <C-j> <C-W>j
 map <C-k> <C-W>k
