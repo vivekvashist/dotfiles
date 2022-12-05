@@ -8,4 +8,5 @@ My custom configuration files for:
 * Inputrc
 * Alacritty
 * Git
+* Fish
 * ~~Vim~~
