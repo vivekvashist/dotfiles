@@ -2,11 +2,16 @@
 
 My custom configuration files for:
 
+**Warning** Use at your own risk!
+
+* Alacritty
 * Bash
 * Tmux
 * Neovim
 * Inputrc
-* Alacritty
 * Git
 * Fish
 * ~~Vim~~
+
+
+
