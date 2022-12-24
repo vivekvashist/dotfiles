@@ -1,2 +1,2 @@
-require('core')
+require('vivek')
 print('Hello')
