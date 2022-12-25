@@ -1,2 +1,4 @@
 require("vivek.remap")
-print("hello from vivek")
+require("vivek.set")
+require("vivek.packer")
+

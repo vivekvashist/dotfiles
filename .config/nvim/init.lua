@@ -1,2 +1,1 @@
 require('vivek')
-print('Hello')
