@@ -26,3 +26,14 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- use h, j, k, l instead of arrow keys
+vim.keymap.set("n", "<up>", "<nop>")
+vim.keymap.set("n", "<down>", "<nop>")
+vim.keymap.set("n", "<left>", "<nop>")
+vim.keymap.set("n", "<right>", "<nop>")
+-- insert mode 
+vim.keymap.set("i", "<up>", "<nop>")
+vim.keymap.set("i", "<down>", "<nop>")
+vim.keymap.set("i", "<left>", "<nop>")
+vim.keymap.set("i", "<right>", "<nop>")
