@@ -1,1 +1,1 @@
-require('vivek')
+require('core')
