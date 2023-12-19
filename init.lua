@@ -185,7 +185,11 @@ vim.keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR>')
 -- clipboard
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-
+-- Better split switching
+vim.keymap.set('', '<C-j>', '<C-W>j')
+vim.keymap.set('', '<C-k>', '<C-W>k')
+vim.keymap.set('', '<C-h>', '<C-W>h')
+vim.keymap.set('', '<C-l>', '<C-W>l')
 
 -- telescope
 -- -- See `:help telescope.builtin`
