@@ -145,18 +145,19 @@ require("lazy").setup({
 
 vim.g.mapleader = ' '                             -- Set <space> as the leader key
 vim.opt.termguicolors = true                      -- Enable 24-bit RGB colors
+vim.opt.relativenumber = true                     -- Enable relative line numbers
 vim.opt.number = true                             -- Show line numbers
 vim.opt.showmatch = true                          -- Highlight matching parenthesis
-vim.opt.relativenumber = true                     -- Enable relative line numbers
-vim.opt.mouse = 'a'                               -- Enable mouse support
 vim.opt.guicursor = ""                            -- GUI: settings for cursor shape and blinking
+vim.opt.swapfile = false                          -- Don't use swapfile for a buffers
+
+vim.opt.mouse = 'a'                               -- Enable mouse support
 vim.opt.tabstop = 4                               -- Number of spaces that <Tab> in file uses
 vim.opt.softtabstop = 4                           -- Number of spaces that <Tab> uses while editing
 vim.opt.shiftwidth = 4                            --  Number of spaces to use for (auto)indent step
 vim.opt.expandtab = true                          -- Use spaces with <Tab> is inserted
 vim.opt.smartindent = true                        -- Use smart indenting
 vim.opt.wrap = false                              -- Long lines wrap and continue on the next line
-vim.opt.swapfile = false                          -- Don't use swapfile for a buffers
 vim.opt.hlsearch = true                           -- Enable highlight matches with last search pattern (already enabled in Neovim)
 vim.opt.incsearch = true                          -- Enable hightlight match while typing search pattern
 vim.opt.scrolloff = 8                             -- Minimum number of lines above and below cursor
@@ -178,6 +179,11 @@ vim.wo.signcolumn = 'yes'                         -- Keep signcolumn on by defau
 
 -- Remove search highlight
 vim.keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR>')
+
+-- If I visually select words and paste from clipboard, don't replace my
+-- clipboard with the selected word, instead keep my old word in the
+-- clipboard
+vim.keymap.set("x", "p", "\"_dP")
 
 -- telescope
 -- -- See `:help telescope.builtin`
