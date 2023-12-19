@@ -183,7 +183,9 @@ vim.keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR>')
 -- If I visually select words and paste from clipboard, don't replace my
 -- clipboard with the selected word, instead keep my old word in the
 -- clipboard
-vim.keymap.set("x", "p", "\"_dP")
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+
 
 -- telescope
 -- -- See `:help telescope.builtin`
