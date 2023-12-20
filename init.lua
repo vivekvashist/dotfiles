@@ -150,6 +150,7 @@ vim.opt.number = true                             -- Show line numbers
 vim.opt.showmatch = true                          -- Highlight matching parenthesis
 vim.opt.guicursor = ""                            -- GUI: settings for cursor shape and blinking
 vim.opt.swapfile = false                          -- Don't use swapfile for a buffers
+vim.opt.scrolloff = 8                             -- Minimum number of lines above and below cursor
 
 vim.opt.mouse = 'a'                               -- Enable mouse support
 vim.opt.tabstop = 4                               -- Number of spaces that <Tab> in file uses
@@ -160,7 +161,6 @@ vim.opt.smartindent = true                        -- Use smart indenting
 vim.opt.wrap = false                              -- Long lines wrap and continue on the next line
 vim.opt.hlsearch = true                           -- Enable highlight matches with last search pattern (already enabled in Neovim)
 vim.opt.incsearch = true                          -- Enable hightlight match while typing search pattern
-vim.opt.scrolloff = 8                             -- Minimum number of lines above and below cursor
 vim.opt.updatetime = 50                           -- After this many milliseconds flush swap file
 vim.opt.colorcolumn = "81"                        -- Column to highlight
 vim.opt.clipboard = 'unnamedplus'                 -- Copy/paste to system clipboard
