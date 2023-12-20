@@ -191,6 +191,10 @@ vim.keymap.set('', '<C-k>', '<C-W>k')
 vim.keymap.set('', '<C-h>', '<C-W>h')
 vim.keymap.set('', '<C-l>', '<C-W>l')
 
+-- Bubbling text
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- telescope
 -- -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
