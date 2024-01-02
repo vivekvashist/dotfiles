@@ -195,6 +195,15 @@ vim.keymap.set('', '<C-l>', '<C-W>l')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Search mappings: These will make it so that going to the next one in a
+-- search will center on the line it's found in.
+vim.keymap.set('n', 'n', 'nzzzv', {noremap = true})
+vim.keymap.set('n', 'N', 'Nzzzv', {noremap = true})
+
+-- Page up/down mappings: These will make ctrl-d/ctrl-u half page jumping center
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {noremap = true})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {noremap = true})
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
