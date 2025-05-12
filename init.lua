@@ -151,7 +151,8 @@ vim.opt.showmatch = true                          -- Highlight matching parenthe
 vim.opt.guicursor = ""                            -- GUI: settings for cursor shape and blinking
 vim.opt.swapfile = false                          -- Don't use swapfile for a buffers
 vim.opt.scrolloff = 8                             -- Minimum number of lines above and below cursor
-
+vim.opt.splitright = true                         -- Split windows right to the current windows
+vim.opt.splitbelow = true                         -- Split windows below to the current windows
 vim.opt.mouse = 'a'                               -- Enable mouse support
 vim.opt.tabstop = 4                               -- Number of spaces that <Tab> in file uses
 vim.opt.softtabstop = 4                           -- Number of spaces that <Tab> uses while editing
